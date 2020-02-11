@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    {% for book in books %}
+    <br>
+    <div class="card">
+        <h5 class="card-header">
+            Boek title: {{book.title}}
+        <br>
+            Prijs: {{book.price}}
+        <br>
+        </h5>
+    <br>
+        {% for review in reviews %}
+            {% if review.bookid == book.title %}
+            <p class="card-text">
+                <div class="card-body">
+                    Reviewer naam: {{review.name}} 
+                    <br>
+                    Review: {{review.description}}
+            </p>
+            {% endif %}
+    </div>
+
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
