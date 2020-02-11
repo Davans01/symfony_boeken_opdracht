@@ -58,19 +58,6 @@ class ReviewController extends AbstractController
         ]);
     }
 
-    public function showReviews($bookid)
-    {
-        $Review = $this->getDoctrine()
-            ->getRepository(Review::class)
-            ->select('r')
-            ->from('Reviews', 'r')
-            ->FindBy($bookid)
-            // ->where('r.book_id = ?1')
-            ->orderBy('u.id', 'ASC');
-
-        // return $qb;
-    }
-
     /**
      * @Route("/{id}/edit", name="review_edit", methods={"GET","POST"})
      */
